@@ -1,0 +1,39 @@
+<table  border="3pt" style="background:purple">
+<tr>	
+<p>
+  <td><strong>Title:</strong></td>
+  <td><%= @cake.title %></td>
+</p>
+ </tr>
+ <tr>
+<p>
+  <td><strong>Text:</strong></td>
+  <td><%= @cake.text %></td>
+</p>
+</tr>
+</table>
+<br>
+<br>
+<h3>Comments</h3>
+<%= render @cake.comments %>
+
+<br>
+<br>
+<h3>Add a comment:</h3>
+<%= form_with(model: [ @cake, @cake.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+...
+<%= button_to "Back", cakes_path, :method => "get" %>
+<%= button_to "Edit", edit_cake_path, :method => "get" %>
+	

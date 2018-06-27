@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center><h1>Listing Type Of Cake</h1>
+ 
+<table  border="4pt" style="background:pink">
+  <tr>
+    <th>Type</th>
+    <th>Flavour</th>
+    <th colspan="3">CRUD</th>
+  </tr>
+ 
+  <% @cakes.each do |cake| %>
+    <tr>
+      <td><%= cake.title %></td>
+      <td><%= cake.text %></td>
+      <td><%= button_to "Show", cake_path(cake), :method => "get" %></td>
+      <td><%= button_to "Edit", edit_cake_path(cake), :method => "get" %></td>
+      <td><%= button_to "Delete", cake_path(cake),
+               method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= button_to "New Cake", new_cake_path, :method => "get" %>
+<%= button_to "Home Page", welcome_index_path, :method => "get" %></center>
